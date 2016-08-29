@@ -1,6 +1,6 @@
 pkgname=feh
 pkgver=2.17
-pkgrel=1
+pkgrel=2
 pkgdesc='Fast and light imlib2-based image viewer'
 url='http://feh.finalrewind.org/'
 license=('custom:MIT')
@@ -22,4 +22,6 @@ package() {
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 
 	install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	# Repair permissions
+	chmod 644 "${pkgdir}/usr/share/icons/hicolor/"{48x48/apps/feh.png,scalable/apps/feh.svg}
 }
