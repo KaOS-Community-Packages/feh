@@ -1,5 +1,5 @@
 pkgname=feh
-pkgver=2.18.1
+pkgver=2.18.2
 pkgrel=1
 pkgdesc='Fast and light imlib2-based image viewer'
 url='http://feh.finalrewind.org/'
@@ -10,7 +10,7 @@ optdepends=('perl: feh-cam, webcam wrapper for feh'
             'imagemagick: support more file formats')
 makedepends=('libxt')
 source=("${url}${pkgname}-${pkgver}.tar.bz2")
-sha1sums=('d2db9a81fb6b675df198ad13c6cf00b6b3dec63f')
+sha1sums=('9bd00bb48e21d26a82078fe2eddf57159a221141')
 
 build() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
