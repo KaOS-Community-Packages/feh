@@ -1,20 +1,18 @@
 pkgname=feh
-pkgver=2.19.1
+pkgver=2.19.2
 pkgrel=1
 pkgdesc='Fast and light imlib2-based image viewer'
 url='http://feh.finalrewind.org/'
 license=('custom:MIT')
 arch=('x86_64')
-depends=('giblib' 'curl' 'libxinerama' 'libexif')
-optdepends=('perl: feh-cam, webcam wrapper for feh'
-            'imagemagick: support more file formats')
+depends=('giblib' 'curl' 'libxinerama' 'libexif' 'libpng' 'libx11' 'imagemagick')
 makedepends=('libxt')
 source=("${url}${pkgname}-${pkgver}.tar.bz2")
-sha1sums=('266e1fc753693886b0cde223b86421d00dafd54b')
+sha1sums=('24e5214034350d0cc27c8153eb6cc9a935939b54')
 
 build() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
-	make PREFIX=/usr exif=1 help=1 stat64=1
+	make CC=clang PREFIX=/usr exif=1 help=1 stat64=1
 }
 
 package() {
@@ -22,6 +20,5 @@ package() {
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 
 	install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-	# Repair permissions
-	chmod 644 "${pkgdir}/usr/share/icons/hicolor/"{48x48/apps/feh.png,scalable/apps/feh.svg}
+	#chmod 644 "${pkgdir}/usr/share/icons/hicolor/"{48x48/apps/feh.png,scalable/apps/feh.svg}
 }
