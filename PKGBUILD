@@ -1,5 +1,5 @@
 pkgname=feh
-pkgver=3.1.1
+pkgver=3.1.2
 pkgrel=1
 pkgdesc='Fast and light imlib2-based image viewer'
 url='http://feh.finalrewind.org/'
@@ -8,7 +8,7 @@ arch=('x86_64')
 depends=('giblib' 'curl' 'libxinerama' 'libexif' 'libpng' 'libx11' 'imagemagick')
 makedepends=('libxt' 'clang')
 source=("${url}${pkgname}-${pkgver}.tar.bz2")
-sha1sums=('afdaf93a24d72c002b3910b8cd1c2a9f1dea425b')
+sha1sums=('8f118c4fea5b79d40ef66ad39284331796b5b831')
 
 build() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
